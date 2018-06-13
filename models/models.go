@@ -35,11 +35,13 @@ func Setup() {
 	host = sec.Key("HOST").String()
 	tablePrefix = sec.Key("TABLE_PREFIX").String()
 
-	db, err = gorm.Open(dbType, fmt.Sprintf("%s:%s@tcp(%s)/%s?charset=utf8&parseTime=True&loc=Local",
+	databaseSetting := fmt.Sprintf("%s:%s@tcp(%s)/%s?charset=utf8&parseTime=True&loc=Local",
 		user,
 		password,
 		host,
-		dbName))
+		dbName)
+
+	db, err = gorm.Open(dbType, databaseSetting)
 
 	if err != nil {
 		log.Println(err)
