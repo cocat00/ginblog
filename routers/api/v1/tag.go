@@ -9,7 +9,7 @@ import (
 	"ginblog/models"
 	"ginblog/pkg/util"
 	"github.com/astaxie/beego/validation"
-	"fmt"
+	"ginblog/pkg/logging"
 )
 
 //获取多个文章标签
@@ -64,8 +64,7 @@ func AddTag(c *gin.Context) {
 		}
 	} else {
 		for _, err := range valid.Errors {
-			//logging.Info(err.Key, err.Message)
-			fmt.Println(err.Key, err.Message)
+			logging.Info(err.Key, err.Message)
 		}
 	}
 
@@ -115,8 +114,7 @@ func EditTag(c *gin.Context) {
 		}
 	} else {
 		for _, err := range valid.Errors {
-			//logging.Info(err.Key, err.Message)
-			fmt.Println(err.Key, err.Message)
+			logging.Info(err.Key, err.Message)
 		}
 	}
 
@@ -144,7 +142,7 @@ func DeleteTag(c *gin.Context) {
 		}
 	} else {
 		for _, err := range valid.Errors {
-			fmt.Println(err.Key, err.Message)
+			logging.Info(err.Key, err.Message)
 		}
 	}
 
