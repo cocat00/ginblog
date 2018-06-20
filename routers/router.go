@@ -8,6 +8,7 @@ import (
 	"ginblog/middleware/jwt"
 	"github.com/swaggo/gin-swagger"
 	"github.com/swaggo/gin-swagger/swaggerFiles"
+	_ "ginblog/docs"
 )
 
 func InitRouter() *gin.Engine {
